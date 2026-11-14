@@ -1,0 +1,48 @@
+{
+  "name": "RSS digest",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://news.ycombinator.com/rss"
+      },
+      "id": "2f1a1a1a-0000-4000-8000-000000000001",
+      "name": "RSS Read",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "maxItems": 5,
+        "keep": "firstItems"
+      },
+      "id": "2f1a1a1a-0000-4000-8000-000000000002",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        480,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "pinData": {},
+  "active": false
+}
